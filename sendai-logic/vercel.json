@@ -1,0 +1,29 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/works",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/works/:path*",
+      "destination": "/",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/wp-json/api/get_page_custom",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "330"
+        }
+      ],
+      "destination": "/api-cache/get_page_custom-330.json"
+    }
+  ]
+}

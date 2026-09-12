@@ -1,6 +1,6 @@
 # サイト引き継ぎ一式
 
-4サイトのソースと、GitHub・Vercel へ引き継ぐための手順をまとめたリポジトリです。
+5サイトのソースと、GitHub・Vercel へ引き継ぐための手順をまとめたリポジトリです。
 このリポジトリだけで引き渡しが完結します。
 
 ```
@@ -8,6 +8,7 @@ zeroone/         株式会社ゼロワン      hr-zeroone.com
 hakata-techno/   株式会社博多テクノ    hakata-techno.tech
 stepia/          ステピア              stepia.jp
 tokai-system/    株式会社東海システム  （独自ドメインなし）
+sendai-logic/    株式会社仙台ロジック  sendai-logic.com
 ```
 
 各ディレクトリがそれぞれ独立したサイトです。ディレクトリ内の `README.md` に、
@@ -15,7 +16,7 @@ tokai-system/    株式会社東海システム  （独自ドメインなし）
 
 ## ソースの受け取り方
 
-**zip で一括ダウンロード**（約17MB・4サイト分）
+**zip で一括ダウンロード**（約25MB・5サイト分）
 
 https://github.com/yotakagi42/hp-handover/archive/refs/heads/main.zip
 
@@ -34,6 +35,9 @@ git clone https://github.com/yotakagi42/hp-handover.git
 | hakata-techno | Next.js + TypeScript | pnpm | 24 以上 |
 | stepia | Next.js 16 + TypeScript | npm | 24 以上 |
 | tokai-system | Next.js 16 + TypeScript | pnpm | 20 以上 |
+| sendai-logic | 静的HTML（Nuxt 3 で書き出し済み） | — | 不要 |
+
+`sendai-logic` だけはビルド不要です。書き出し済みのファイルをそのまま配信します。
 
 ---
 
@@ -41,7 +45,7 @@ git clone https://github.com/yotakagi42/hp-handover.git
 
 - **GitHub Organization**（または個人アカウント）— このリポジトリの受け取り先
 - **Vercel アカウント** — 法人での商用利用は **Pro プラン（$20/月〜）** が必要です。Hobby プランは規約上、商用利用が認められていません
-- **ドメインの DNS 管理権限** — 4サイトとも Xserver のネームサーバーを使用しています。管理画面にログインできる担当者が必要です
+- **ドメインの DNS 管理権限** — 独自ドメインを持つ4サイトはいずれも Xserver のネームサーバーを使用しています。管理画面にログインできる担当者が必要です
 
 ---
 
@@ -70,7 +74,7 @@ zip でダウンロードした場合は、展開したフォルダで `git init
 
 ### 2. Vercel でインポートする `[貴社]`
 
-**サイトごとに Vercel プロジェクトを1つずつ作ります。** 同じリポジトリを4回インポートし、
+**サイトごとに Vercel プロジェクトを1つずつ作ります。** 同じリポジトリを5回インポートし、
 それぞれ Root Directory を変えるかたちです。
 
 Add New → Project → このリポジトリを選択 → **Root Directory** に対象ディレクトリを指定します。
@@ -81,11 +85,13 @@ Add New → Project → このリポジトリを選択 → **Root Directory** �
 | （博多テクノ用） | `hakata-techno` |
 | （ステピア用） | `stepia` |
 | （東海システム用） | `tokai-system` |
+| （仙台ロジック用） | `sendai-logic` |
 
 - フレームワークプリセットは自動検出されます（Next.js または Vite）
 - ビルドコマンド・出力ディレクトリはデフォルトのままで通ります
 - pnpm のサイトは `pnpm-lock.yaml` を見て自動的に pnpm が使われます
-- 環境変数の設定は不要です（4サイトとも使用していません）
+- 環境変数の設定は不要です（5サイトとも使用していません）
+- **仙台ロジックはビルド不要**です。Framework Preset に `Other` を選び、Build Command は空欄、Output Directory は `.`（ディレクトリ直下）を指定してください。同ディレクトリの `vercel.json` にルーティング設定が含まれています
 
 ビルドが完了すると `プロジェクト名.vercel.app` の URL が発行されます。
 **この時点ではまだ独自ドメインを接続しないでください。**
@@ -170,6 +176,17 @@ Vercel が要求する DNS レコードは次の形です。
 現在のサイトから参照されていない未使用素材です。`<video>` タグ自体が存在しません。
 今後使う予定がなければ削除して構いません。
 
+### 仙台ロジック — ロゴとファビコン `[要確認]`
+
+ヘッダーのロゴ（インライン SVG）と `favicon.ico` は、制作時の参考サイト由来のものがそのまま使われています。
+自社のロゴデータに差し替えることを推奨します。ロゴは `index.html` ほか各ページの `<svg id="logosvg">`、
+ファビコンは `favicon.ico` の置き換えで対応できます。
+
+### 仙台ロジック — robots.txt `[要確認]`
+
+`robots.txt` が `Disallow: /`（全ページのクロール拒否）のままです。制作時の設定と思われます。
+検索エンジンに載せる運用であれば解除してください。あわせて `sitemap.xml` の設置も検討ください。
+
 ### ステピア・ゼロワン — 依存パッケージの更新 `[推奨]`
 
 ステピアで19件、ゼロワンで7件の既知の脆弱性が `npm audit` で検出されています。
@@ -194,6 +211,9 @@ cd zeroone && npm install && npm run dev
 
 # 博多テクノ・東海システム
 cd hakata-techno && pnpm install --frozen-lockfile && pnpm dev
+
+# 仙台ロジック（ビルド不要・静的配信）
+cd sendai-logic && python3 -m http.server 3141
 ```
 
 各サイトの詳細は、それぞれのディレクトリ内の `README.md` を参照してください。
@@ -201,7 +221,7 @@ cd hakata-techno && pnpm install --frozen-lockfile && pnpm dev
 ### 費用
 
 Vercel Pro プランは1メンバーあたり月 $20 です。帯域やビルド時間が規定量を超えると追加課金が発生しますが、
-4サイトはいずれも静的生成が中心の小規模構成のため、通常運用で超過する可能性は低い見込みです。
+5サイトはいずれも静的生成が中心の小規模構成のため、通常運用で超過する可能性は低い見込みです。
 
 ドメインの更新費用は Xserver 側で継続して発生します。管理者アカウントの引き継ぎもあわせてご確認ください。
 

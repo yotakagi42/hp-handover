@@ -1,0 +1,1 @@
+import{a7 as i,B as r,D as o}from"./entry.GRGwadVf.js";const u=i((a,e)=>{e.query.preview&&$fetch(r().apiBase+"/get_preview",{method:"POST",body:{id:e.query.p}}).then(t=>(console.log("middleware res",t),o("/blog/"+t.slug+"?preview=true",{redirectCode:301})))});export{u as default};

@@ -1,0 +1,1 @@
+import{i as t,c,d as o,p as r}from"./entry.GRGwadVf.js";const e={__name:"ButtonArrow",props:{direction:String},setup(n){return(a,i)=>(t(),c("div",{class:r([n.direction,"button_arrow"])},[o("div",null,[o("i",{class:r("icon-arrow-"+n.direction)},null,2),o("i",{class:r("icon-arrow-"+n.direction)},null,2)])],2))}},l=e;export{l as _};

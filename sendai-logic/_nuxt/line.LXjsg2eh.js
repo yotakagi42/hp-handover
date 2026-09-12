@@ -1,0 +1,1 @@
+import{C as a,c,i as o}from"./entry.GRGwadVf.js";const s={class:"callback"},_={__name:"line",setup(t){const e=a();return console.log("Callback Params",e),(l,n)=>(o(),c("div",s))}};export{_ as default};

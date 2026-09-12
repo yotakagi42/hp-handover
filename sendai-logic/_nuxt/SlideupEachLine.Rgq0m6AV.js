@@ -1,0 +1,1 @@
+import{i as e,c as t,F as r,k as o,d as c,t as _}from"./entry.GRGwadVf.js";const d={"data-scroll":"",class:"slide-up-each"},i={translate:"no"},l={__name:"SlideupEachLine",props:{data:{type:Array,default:[]}},setup(a){return(p,u)=>(e(),t("div",d,[(e(!0),t(r,null,o(a.data,(s,n)=>(e(),t("div",{key:n},[c("span",i,_(s),1)]))),128))]))}},h=l;export{h as _};
