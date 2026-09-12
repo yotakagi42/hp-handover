@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply bg-paper;
+    overflow-x: hidden;
+  }
+  body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: #ccff00;
+    color: #141414;
+  }
+  /* consistent brand focus ring for keyboard users (mouse clicks unaffected) */
+  :focus-visible {
+    outline: 2px solid #3b6cf5;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* honour prefers-reduced-motion globally as a safety net beyond the JS gates */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+  }
+  /* animated colorful gradient heading */
+  .c-colorful {
+    background-image: linear-gradient(
+      90deg,
+      #ff7a3d,
+      #ff5da2,
+      #8a5cf6,
+      #3b6cf5,
+      #00c2a8,
+      #9be000
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: hue 8s linear infinite;
+  }
+  @keyframes hue {
+    to {
+      background-position: 200% center;
+    }
+  }
+  .label-caps {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+  }
+  .pill {
+    @apply rounded-full bg-white px-5 py-2 text-sm font-bold text-ink shadow-sm ring-1 ring-black/5 transition-colors;
+  }
+}
+
+/* static brand "air" wash used when the WebGL smoke canvas can't run
+   (headless capture, no-GPU, context loss). Keeps the hero from ever being a
+   flat empty field — a soft pastel echo of the animated field. */
+.air-fallback {
+  background:
+    radial-gradient(60% 55% at 18% 12%, rgba(59, 108, 245, 0.1), transparent 70%),
+    radial-gradient(55% 50% at 82% 20%, rgba(255, 93, 162, 0.1), transparent 70%),
+    radial-gradient(65% 60% at 70% 82%, rgba(0, 194, 168, 0.1), transparent 72%),
+    radial-gradient(50% 45% at 30% 88%, rgba(155, 224, 0, 0.1), transparent 72%),
+    #fcfbf7;
+}
+
+/* soft grain on light bg */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f0eee7;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfcabb;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9be000;
+}

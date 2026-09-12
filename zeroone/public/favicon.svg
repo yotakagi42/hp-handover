@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="badge" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF5DA2"/>
+      <stop offset="0.5" stop-color="#8A5CF6"/>
+      <stop offset="1" stop-color="#3B6CF5"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="18" fill="url(#badge)"/>
+  <circle cx="26" cy="35" r="10" stroke="#fff" stroke-width="7"/>
+  <rect x="42" y="17" width="7" height="30" rx="3.5" fill="#fff"/>
+</svg>
