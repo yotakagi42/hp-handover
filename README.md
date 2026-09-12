@@ -13,6 +13,21 @@ tokai-system/    株式会社東海システム  （独自ドメインなし）
 各ディレクトリがそれぞれ独立したサイトです。ディレクトリ内の `README.md` に、
 そのサイト固有のセットアップ手順・ページ構成を記載しています。
 
+## ソースの受け取り方
+
+**zip で一括ダウンロード**（約17MB・4サイト分）
+
+https://github.com/yotakagi42/hp-handover/archive/refs/heads/main.zip
+
+リポジトリページ右上の緑の **Code** ボタン → **Download ZIP** からも同じものが取得できます。
+GitHub アカウントは不要です。
+
+**git で取得する場合**
+
+```bash
+git clone https://github.com/yotakagi42/hp-handover.git
+```
+
 | サイト | 構成 | パッケージ | Node |
 | --- | --- | --- | --- |
 | zeroone | Vite + React 19 + TypeScript | npm | 20 以上 |
@@ -42,13 +57,16 @@ tokai-system/    株式会社東海システム  （独自ドメインなし）
 - 貴社側で移管を承認してください（GitHub から通知が届きます）
 
 移管せず、貴社で新規リポジトリを作って push する方法でも構いません。
+このリポジトリは公開されているため、招待を待たずにすぐ取得できます。
 
 ```bash
-git clone <このリポジトリ>
+git clone https://github.com/yotakagi42/hp-handover.git
 cd hp-handover
 git remote set-url origin https://github.com/<貴社Org>/<リポジトリ名>.git
 git push -u origin main
 ```
+
+zip でダウンロードした場合は、展開したフォルダで `git init` してから push してください。
 
 ### 2. Vercel でインポートする `[貴社]`
 
