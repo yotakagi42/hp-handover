@@ -1,13 +1,7 @@
 import Reveal from './Reveal'
 import FrostPanel from './FrostPanel'
 
-const NEWS = [
-  { date: '2024.06.20', cat: 'PRESS', title: '次世代クラウド基盤ソリューションの提供を開始しました。' },
-  { date: '2024.05.28', cat: 'EVENT', title: 'テックカンファレンス「Zeroone Forge」を初開催。' },
-  { date: '2024.05.10', cat: 'RECRUIT', title: 'システムアーキテクト・セキュリティエンジニアを募集中です。' },
-  { date: '2024.04.15', cat: 'R&D', title: '量子コンピューティング領域の研究開発チームを新設しました。' },
-  { date: '2024.03.30', cat: 'NEWS', title: 'コーポレートサイトをリニューアルしました。' },
-]
+const NEWS: { date: string; cat: string; title: string }[] = []
 
 const CHIP: Record<string, string> = {
   PRESS: 'bg-pop-blue',
@@ -18,6 +12,8 @@ const CHIP: Record<string, string> = {
 }
 
 export default function Topics() {
+  if (NEWS.length === 0) return null
+
   return (
     <section id="topics" className="px-5 py-24 lg:px-10 lg:py-32">
       <div className="mx-auto max-w-container">

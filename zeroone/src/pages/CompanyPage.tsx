@@ -6,8 +6,6 @@ import SubpageLayout from '../components/SubpageLayout'
 const PROFILE = [
   { label: '社名', value: '株式会社Zeroone（Zeroone Inc.）' },
   { label: '代表者', value: '代表取締役 佐々木 凌希' },
-  { label: '資本金', value: '5,000万円' },
-  { label: '従業員数', value: '128名（2026年6月現在）' },
   {
     label: '所在地',
     value: '東京都品川区南大井6丁目17-10 大森レインボービル8階',
