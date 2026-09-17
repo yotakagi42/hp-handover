@@ -112,22 +112,12 @@ export default function CompanyPage() {
           <Reveal>
             <p className="label-caps mb-8 text-ink-soft">ACCESS ／ アクセス</p>
           </Reveal>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-1">
             <Reveal delay={0.06}>
-              <div className="h-full rounded-3xl bg-white p-7 ring-1 ring-black/5">
+              <div className="h-full max-w-md rounded-3xl bg-white p-7 ring-1 ring-black/5">
                 <p className="font-round text-xl font-bold text-ink">東京本社</p>
                 <p className="mt-3 font-jp text-sm leading-loose text-ink-soft">
                   東京都品川区南大井6丁目17-10 大森レインボービル8階
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.14}>
-              <div className="h-full rounded-3xl bg-white p-7 ring-1 ring-black/5">
-                <p className="font-round text-xl font-bold text-ink">グローバル拠点</p>
-                <p className="mt-3 font-jp text-sm leading-loose text-ink-soft">
-                  シンガポール ／ ホーチミン
-                  <br />
-                  海外パートナーと連携したオフショア開発体制を運用しています。
                 </p>
               </div>
             </Reveal>

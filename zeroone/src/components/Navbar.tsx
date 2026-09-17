@@ -9,7 +9,6 @@ const LINKS = [
   { ja: '企業理念', href: '/#about' },
   { ja: '事業紹介', href: '/#services' },
   { ja: '採用情報', href: '/recruit', route: true },
-  { ja: 'トピックス', href: '/#topics' },
   { ja: '会社概要', href: '/company', route: true },
 ]
 

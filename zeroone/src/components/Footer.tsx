@@ -8,7 +8,6 @@ const MENU = [
   { ja: '採用情報', href: '/recruit' },
   { ja: '会社概要', href: '/company' },
 ]
-const LEGAL = ['プライバシーポリシー', '利用規約', 'セキュリティ']
 
 export default function Footer() {
   const [email, setEmail] = useState('')
@@ -37,7 +36,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="md:col-span-2">
+        <div className="md:col-span-3">
           <h4 className="label-caps mb-5 text-ink-soft">MENU</h4>
           <div className="space-y-3">
             {MENU.map((m) => (
@@ -52,22 +51,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="md:col-span-2">
-          <h4 className="label-caps mb-5 text-ink-soft">LEGAL</h4>
-          <div className="space-y-3">
-            {LEGAL.map((m) => (
-              <a
-                key={m}
-                href="#company"
-                className="block font-jp text-sm text-ink/70 transition-colors hover:text-pop-blue"
-              >
-                {m}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div className="md:col-span-4">
+        <div className="md:col-span-5">
           <h4 className="label-caps mb-5 text-ink-soft">NEWSLETTER</h4>
           <form
             onSubmit={submit}
@@ -96,18 +80,10 @@ export default function Footer() {
           )}
         </div>
 
-        <div className="col-span-full mt-10 flex flex-col items-center justify-between gap-4 border-t border-black/5 pt-8 md:flex-row">
+        <div className="col-span-full mt-10 flex flex-col items-center justify-center gap-4 border-t border-black/5 pt-8 md:flex-row">
           <span className="font-mono text-xs text-ink-soft/70">
             © {new Date().getFullYear()} Zeroone — SES Global Systems Engineering.
           </span>
-          <div className="flex gap-6">
-            <a href="#company" className="font-mono text-xs text-ink-soft/70 transition-colors hover:text-ink">
-              Cookie
-            </a>
-            <a href="#company" className="font-mono text-xs text-ink-soft/70 transition-colors hover:text-ink">
-              Global Offices
-            </a>
-          </div>
         </div>
       </div>
     </footer>

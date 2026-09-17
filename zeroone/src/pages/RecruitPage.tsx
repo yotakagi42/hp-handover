@@ -75,21 +75,18 @@ export default function RecruitPage() {
                 <InteractiveCard
                   tilt={3}
                   glow="rgba(255,93,162,0.16)"
-                  className="group h-full rounded-3xl bg-white ring-1 ring-black/5 hover:shadow-[0_18px_50px_-26px_rgba(20,20,20,0.4)] hover:ring-pop-pink/40"
+                  className="h-full rounded-3xl bg-white ring-1 ring-black/5"
                 >
-                  <a href="/#contact" className="flex h-full flex-col p-7">
+                  <div className="flex h-full flex-col p-7">
                     <span className={`label-caps block ${p.color}`}>{p.en}</span>
                     <p className="mt-1 font-round text-2xl font-bold text-ink">{p.jp}</p>
                     <p className="mt-3 flex-1 font-jp text-sm leading-loose text-ink-soft">
                       {p.desc}
                     </p>
-                    <div className="mt-5 flex items-center justify-between">
+                    <div className="mt-5">
                       <span className="font-mono text-xs text-ink-soft/80">{p.type}</span>
-                      <span className="material-symbols-outlined text-ink/40 transition-transform duration-300 group-hover:translate-x-1.5 group-hover:text-ink">
-                        chevron_right
-                      </span>
                     </div>
-                  </a>
+                  </div>
                 </InteractiveCard>
               </Reveal>
             ))}
@@ -174,15 +171,6 @@ export default function RecruitPage() {
             <p className="mx-auto mt-4 max-w-xl font-jp text-base leading-loose text-ink-soft">
               「いきなり応募はハードルが高い」という方も歓迎です。現場のエンジニアがチームの実際をお話しします。
             </p>
-            <a
-              href="/#contact"
-              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-8 py-4 font-bold text-white transition-transform hover:scale-[0.97]"
-            >
-              応募・カジュアル面談はこちら
-              <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">
-                arrow_forward
-              </span>
-            </a>
           </Reveal>
         </div>
       </section>
