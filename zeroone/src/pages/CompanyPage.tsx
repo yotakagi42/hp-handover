@@ -4,7 +4,7 @@ import FrostPanel from '../components/FrostPanel'
 import SubpageLayout from '../components/SubpageLayout'
 
 const PROFILE = [
-  { label: '社名', value: '株式会社Zeroone（Zeroone Inc.）' },
+  { label: '社名', value: '株式会社ゼロワン' },
   { label: '代表者', value: '代表取締役 佐々木 凌希' },
   {
     label: '所在地',
