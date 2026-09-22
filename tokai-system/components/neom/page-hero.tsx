@@ -1,7 +1,5 @@
-// 下層ページ共通のシアン波ヒーロー。
+// 下層ページ共通のヒーロー。ネイビー背景 + 斜めカットで宮路工業所トンマナに揃える。
 import React from "react";
-import { Wave } from "@/components/layout/wave";
-import { Sparkle } from "@/components/layout/doodles";
 import { Reveal } from "@/components/site/reveal";
 
 export function PageHero({
@@ -17,12 +15,10 @@ export function PageHero({
 }) {
   return (
     <div className="bg-white">
-      <div className="relative overflow-hidden bg-accent pt-28 pb-10 text-center text-white md:pt-36 md:pb-16">
-        <Sparkle className="anim-floating pointer-events-none absolute top-24 left-[14%] w-8 text-[#f5d98a]" />
-        <Sparkle className="anim-floating-slow pointer-events-none absolute bottom-10 right-[16%] w-6 text-white/60" />
+      <div className="relative bg-accent pb-14 pt-20 text-center text-white clip-diagonal-down md:pb-20 md:pt-28">
         <Reveal className="px-5">
           <p className="text-xs tracking-[0.3em] text-white/80">{labelEn}</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-widest md:text-4xl">
+          <h1 className="mt-3 text-3xl font-bold tracking-wide md:text-4xl">
             {title}
           </h1>
           {lead && (
@@ -35,7 +31,6 @@ export function PageHero({
           </p>
         </Reveal>
       </div>
-      <Wave fill="#45a6dc" variant="b" flip />
     </div>
   );
 }

@@ -1,46 +1,35 @@
-// 東海システム コーポレートサイトのトップページ。
-// セクション間は Wave で有機的に接続する（背景色の流れ: 濃紺→シアン→白→グレー→シアン→グレー→白→濃淡コラージュ→シアン）。
-import { Wave } from "@/components/layout/wave";
-import { HeroKv } from "@/components/layout/hero-kv";
-import { IntroStatement } from "@/components/layout/intro-statement";
-import { ConceptSection } from "@/components/layout/concept-section";
-import { ReasonCards } from "@/components/layout/reason-cards";
-import { AboutExplainer } from "@/components/layout/about-explainer";
-import { FaqTabs } from "@/components/layout/faq-tabs";
-import { InterviewCarousel } from "@/components/layout/interview-carousel";
-import { StrengthSticky } from "@/components/layout/strength-sticky";
-import { NewsSection } from "@/components/layout/news-section";
-import { BottomMessage } from "@/components/layout/bottom-message";
+// 宮路工業所(miyaji-kougyousho.jp)トレース × 東海システムのトップページ。
+// ネイビー+レッドを基調に、写真と斜めカットでセクションをつなぐ。
+import { HeroKv } from "@/components/neom/hero-kv";
+import { IntroStatement } from "@/components/neom/intro-statement";
+import { ConceptSection } from "@/components/neom/concept-section";
+import { ReasonCards } from "@/components/neom/reason-cards";
+import { AboutExplainer } from "@/components/neom/about-explainer";
+import { StrengthSticky } from "@/components/neom/strength-sticky";
+import { BottomMessage } from "@/components/neom/bottom-message";
 import {
-  GlobalHeader,
+  NeomHeader,
   FloatingContact,
-  GlobalFooter,
-} from "@/components/layout/site-chrome";
-import { Preloader } from "@/components/layout/preloader";
+  NeomFooter,
+} from "@/components/neom/site-chrome";
+import { Preloader } from "@/components/neom/preloader";
 
 export default function Home() {
   return (
     <div id="top" className="bg-white text-foreground overflow-x-clip">
       <Preloader />
-      <GlobalHeader />
+      <NeomHeader />
       <FloatingContact />
-      <main>
+      <main className="pt-16 md:pt-20">
         <HeroKv />
         <IntroStatement />
         <ConceptSection />
         <ReasonCards />
         <AboutExplainer />
-        <div className="bg-[#45a6dc]">
-          <Wave fill="#ececec" />
-        </div>
-        <FaqTabs />
-        <Wave fill="#ececec" flip />
-        <InterviewCarousel />
         <StrengthSticky />
-        <NewsSection />
         <BottomMessage />
       </main>
-      <GlobalFooter />
+      <NeomFooter />
     </div>
   );
 }

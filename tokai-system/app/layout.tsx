@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Zen_Maru_Gothic, Geist_Mono } from "next/font/google";
+import { Noto_Sans_JP, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const zenMaruGothic = Zen_Maru_Gothic({
-  variable: "--font-zen-maru",
-  weight: ["400", "500", "700"],
+const notoSansJp = Noto_Sans_JP({
+  variable: "--font-noto-sans-jp",
+  weight: ["400", "500", "700", "900"],
   subsets: ["latin"],
 });
 
@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "株式会社東海システム | 名古屋のシステム開発・インフラ・SES",
+  title: "株式会社東海システム | 精密板金・金属加工",
   description:
-    "株式会社東海システムは、名古屋・名駅を拠点に業務システム開発・ITインフラ構築・SESを提供しています。製造・物流の現場が止まらない仕組みをつくります。",
+    "株式会社東海システムは、切断・曲げ・溶接から仕上げまでを一貫して手がける精密板金・金属加工の会社です。小ロット・短納期のご要望にもきめ細かく対応します。",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${zenMaruGothic.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${notoSansJp.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

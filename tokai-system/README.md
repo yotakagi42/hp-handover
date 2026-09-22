@@ -40,7 +40,6 @@ pnpm build
 | --- | --- |
 | `/` | トップページ |
 | `/company` | 会社概要 |
-| `/recruit` | 採用情報 |
 
 ## デプロイ（Vercel）
 

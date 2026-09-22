@@ -1,7 +1,7 @@
 "use client";
 // 最新情報セクション。カテゴリフィルタでカードを絞り込み表示する。
 import React from "react";
-import { Blob, CrossMark, Sparkle, Sun } from "@/components/layout/doodles";
+import { Blob, CrossMark, Sparkle, Sun } from "@/components/neom/doodles";
 import { Reveal } from "@/components/site/reveal";
 
 type NewsCategory = "お知らせ" | "採用" | "イベント";
