@@ -23,7 +23,7 @@ const COMPANY_ROWS = [
   },
   {
     label: "東京本社",
-    value: "東京都渋谷区恵比寿",
+    value: "〒150-0022 東京都渋谷区恵比寿南1-1-1",
   },
   { label: "メール", value: "contact@tokai-system.net" },
 ];
