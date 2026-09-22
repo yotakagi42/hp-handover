@@ -1,4 +1,4 @@
-// paceスタイルのプリローダー（loading-start/finish実測値の簡略版）。
+// neomのpaceプリローダーのトレース（loading-start/finish実測値の簡略版）。
 // JS非依存のCSSアニメーションのみで構成し、1.5秒で必ず消えるフェイルセーフとする。
 import React from "react";
 

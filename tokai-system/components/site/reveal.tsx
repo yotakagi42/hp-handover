@@ -1,5 +1,5 @@
 "use client";
-// 入場アニメーション。実測値: 基本=1.2s translateY(20px)、
+// neomトレースの入場アニメーション。実測値: 基本=1.2s translateY(20px)、
 // clip系=0.8s clip-path inset、pon=0.6s scale(0)→1、sprout=0.8s 揺れ付きポップ。
 import {
   motion,

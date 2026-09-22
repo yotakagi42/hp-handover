@@ -1,10 +1,10 @@
 "use client";
 
 // 事業内容セクション。左のstickyサイドバーが、右の詳細ブロックのスクロール位置に
-// 追従してハイライトを切り替える。rootMargin で画面中央付近のブロックをアクティブ扱いにする。
+// 追従してハイライトを切り替える。写真は各加工工程に合わせたものを使用。
+import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/site/reveal";
-import { Blob } from "@/components/layout/doodles";
 
 type Strength = {
   no: string;
@@ -13,44 +13,48 @@ type Strength = {
   title: [string, string];
   body: string;
   items: { term: string; desc: string }[];
+  image: string;
 };
 
 const STRENGTHS: Strength[] = [
   {
     no: "01",
-    label: "SYSTEM DEV",
-    nav: "業務システム開発",
-    title: ["現場の業務を、", "そのまま動くシステムに。"],
-    body: "生産管理・在庫・受発注など、製造・物流の業務システムを要件定義から運用まで一貫対応。現場の紙や口頭で回っている知恵を、運用できる形に落とします。",
+    label: "CUTTING",
+    nav: "切断加工",
+    title: ["精密な切断で、", "図面通りの形状を。"],
+    body: "レーザー加工・シャーリングなど、金属板の切断加工を、素材や板厚に合わせて最適な方法で行います。",
     items: [
-      { term: "生産・在庫管理", desc: "ラインの実績収集から在庫の見える化まで" },
-      { term: "受発注・EDI", desc: "取引先とつながる受発注の仕組みづくり" },
-      { term: "業務Web", desc: "現場で毎日使われる社内システムの開発" },
+      { term: "レーザー切断", desc: "複雑な形状・小径穴にも対応した精密切断" },
+      { term: "シャーリング加工", desc: "直線切断による効率的な材料取り" },
+      { term: "材料選定", desc: "用途に応じた鋼材・アルミ等の選定サポート" },
     ],
+    image: "/images/strength-laser-cutting.jpg",
   },
   {
     no: "02",
-    label: "INFRA",
-    nav: "ITインフラ",
-    title: ["アプリの下の、", "止まらない基盤づくり。"],
-    body: "サーバー・ネットワーク構築からクラウド移行、監視まで。アプリと基盤を別会社視点で分断せず、障害時の切り分けまで見据えた設計を行います。",
+    label: "BENDING",
+    nav: "曲げ加工",
+    title: ["精度が、", "仕上がりを決める。"],
+    body: "プレスブレーキによる曲げ加工で、寸法精度の高い部品形状を実現します。",
     items: [
-      { term: "サーバー・NW構築", desc: "オンプレからクラウドまで環境に合わせて設計" },
-      { term: "クラウド移行", desc: "段階移行で現場を止めない引っ越しを" },
-      { term: "24時間監視", desc: "異常の予兆をつかみ、障害の芽を先に摘む" },
+      { term: "ベンディング加工", desc: "複数回曲げにも対応した精密プレス加工" },
+      { term: "寸法検査", desc: "曲げ角度・寸法の全数管理" },
+      { term: "試作対応", desc: "一点ものの試作にも柔軟に対応" },
     ],
+    image: "/images/strength-press-brake.jpg",
   },
   {
     no: "03",
-    label: "SES",
-    nav: "SES・常駐支援",
-    title: ["現場で続く人を、", "現場へ届ける。"],
-    body: "お客様先での開発・インフラ・運用支援。希望とスキル、定着率を意識したマッチングで、『とりあえず人数』ではなく現場で続く人を届けます。参画後のフォローも大切にしています。",
+    label: "WELDING & FINISH",
+    nav: "溶接・仕上げ",
+    title: ["丁寧な溶接で、", "現場に寄り添う。"],
+    body: "溶接から研磨・仕上げまで、品質管理のもと、お客様の求める仕上がりを実現します。",
     items: [
-      { term: "マッチング", desc: "希望・スキル・現場の相性を重ねて選定" },
-      { term: "参画後フォロー", desc: "定期面談で現場との齟齬を早期に解消" },
-      { term: "キャリア支援", desc: "資格取得支援と社内勉強会でスキルを更新" },
+      { term: "溶接加工", desc: "アーク溶接・TIG溶接など用途に応じた溶接" },
+      { term: "研磨・仕上げ", desc: "バリ取り・表面仕上げまで対応" },
+      { term: "品質検査", desc: "溶接部・仕上げ状態の検品体制" },
     ],
+    image: "/images/strength-welding-finish.jpg",
   },
 ];
 
@@ -90,15 +94,15 @@ export function StrengthSticky() {
     <section id="strength" className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="text-center">
-          <h2 className="text-3xl font-bold tracking-[0.2em] text-accent md:text-4xl">
+          <p className="text-sm font-bold tracking-[0.2em] text-accent">
             Strength
-          </h2>
-          <p className="mt-2 text-xs tracking-widest text-foreground/60">
-            事業内容
           </p>
+          <h2 className="mt-2 text-2xl font-bold text-foreground md:text-3xl">
+            事業内容
+          </h2>
         </Reveal>
 
-        <div className="mt-16 md:grid md:grid-cols-[280px_1fr] md:gap-12">
+        <div className="mt-16 md:grid md:grid-cols-[260px_1fr] md:gap-12">
           <nav className="hidden md:block">
             <ul className="sticky top-24 space-y-8 self-start">
               {STRENGTHS.map((strength, index) => {
@@ -108,19 +112,19 @@ export function StrengthSticky() {
                     <button
                       type="button"
                       onClick={() => scrollToBlock(index)}
-                      className={`flex flex-col items-start text-left transition-opacity duration-300 ${
-                        active ? "opacity-100" : "opacity-40"
+                      className={`flex flex-col items-start border-l-4 pl-4 text-left transition-colors duration-300 ${
+                        active ? "border-red" : "border-transparent"
                       }`}
                     >
                       <span
-                        className={`text-4xl font-bold transition-colors duration-300 ${
-                          active ? "text-accent" : "text-foreground"
+                        className={`text-3xl font-bold transition-colors duration-300 ${
+                          active ? "text-accent" : "text-foreground/40"
                         }`}
                       >
                         {strength.no}
                       </span>
                       <span
-                        className={`mt-2 rounded-full px-3 py-0.5 text-xs font-bold tracking-wider transition-colors duration-300 ${
+                        className={`mt-2 px-3 py-0.5 text-xs font-bold tracking-wider transition-colors duration-300 ${
                           active
                             ? "bg-accent text-white"
                             : "bg-gray-200 text-foreground/70"
@@ -159,7 +163,7 @@ export function StrengthSticky() {
                       <p className="mt-5 text-sm leading-loose text-foreground/80 md:text-base">
                         {strength.body}
                       </p>
-                      <dl className="mt-6 rounded-xl border border-accent p-6">
+                      <dl className="mt-6 border border-accent/30 p-6">
                         {strength.items.map((item, i) => (
                           <div
                             key={item.term}
@@ -176,12 +180,15 @@ export function StrengthSticky() {
                       </dl>
                     </div>
 
-                    <div className="relative mt-8 hidden h-60 w-60 shrink-0 items-center justify-center md:mt-0 md:flex">
-                      <Blob
-                        variant={(index % 3) as 0 | 1 | 2}
-                        className="absolute inset-0 h-full w-full text-accent-pale"
+                    <div className="relative mt-8 hidden h-60 w-60 shrink-0 overflow-hidden md:mt-0 md:block">
+                      <Image
+                        src={strength.image}
+                        alt={strength.nav}
+                        fill
+                        sizes="240px"
+                        className="object-cover"
                       />
-                      <span className="relative text-4xl font-bold text-accent">
+                      <span className="absolute bottom-0 right-0 bg-accent px-3 py-1 text-2xl font-bold text-white">
                         {strength.no}
                       </span>
                     </div>

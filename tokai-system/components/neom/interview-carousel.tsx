@@ -2,7 +2,7 @@
 // 社員インタビューのカルーセル。Swiper不使用でtranslateXによる送り、デスクトップ2枚/モバイル1枚表示・ループ。
 import { motion } from "framer-motion";
 import React from "react";
-import { Blob, DotArc } from "@/components/layout/doodles";
+import { Blob, DotArc } from "@/components/neom/doodles";
 import { Reveal } from "@/components/site/reveal";
 
 type Interview = {
